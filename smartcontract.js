@@ -3,7 +3,7 @@ let demoscratos;
 
 function checkContract() {
   let confForm = document.forms['conf-form'];
-  let address = confForm['network-address'].value || 'http://localhost:8545';
+  let address = confForm['network-address'].value || 'http://23.92.21.108:8545';
   let contractAddress = confForm['contract-address'].value;
 
   web3 = new Web3(new Web3.providers.HttpProvider(address));
