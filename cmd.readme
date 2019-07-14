@@ -4,3 +4,19 @@ Configurer le fichier genesis.json et mettre les adresse créées dans la partie
 Initialiser le bloc génesis geth init --datadir ~/.ethereum_private ./contract/genesis.json
 Lancer la console geth --cache 512 --ipcpath ~/Library/Ethereum/geth.ipc --networkid 101 --rpc --rpcapi "web3,net,personal,eth" --rpccorsdomain "*" --datadir ~/.ethereum_private console
 A partir de la console lancer le mineur miner.start()
+
+
+geth --datadir /Users/franceneralezy/.ethereum --keystore /Users/franceneralezy/.ethereum/keystore --nousb  --testnet removedb
+
+
+remove db / existing genesis incompatible
+sudo rm -r -f /Users/franceneralezy/.ethereum_private/geth/chaindata
+sudo rm -r -f /Users/franceneralezy/.etdata/*hereum/geth/lightchain
+
+sudo rm -r -f /Users/franceneralezy/.contract/genesis.json
+
+sudo rm -r -f /Users/franceneralezy/.etdata/*hereum/geth
+
+sudo geth --rpc --rpcaddr "0.0.0.0" --rpcport "8545" --rpcapi "web3,eth,net,debug" --rpccorsdomain "*" --testnet
+
+sudo geth --cache 512 --ipcpath ~/Library/Ethereum/geth.ipc --networkid 101 --rpc --rpcaddr "0.0.0.0" --rpcport "8545" --rpcapi "web3,net,personal,eth" --rpccorsdomain "*" --datadir ~/.ethereum_private console
