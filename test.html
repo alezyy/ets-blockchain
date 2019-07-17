@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<div class="container"> <br>
+    <div class="row">
+        <div class="col"><img src="https://i.imgur.com/87ZUO6G.png" width="450" height="450" class="Avatar" ></div>
+        <div class="col">
+
+            <form class="login100-form validate-form" name="conf-form">
+
+					<div class="container">
+            <i class="fa fa-users"></i>
+            <label for="">The contract address</label>
+            <input type="text" id="contractaddress" name="contractaddress" class="form-control" placeholder="Enter contract address" required>
+            <br>
+            <i class="fa fa-key"></i>
+            <label for="">The diploma ethereum address</label>
+            <input type="text" id="diplomaddress" name="diplomaddress" class="form-control" placeholder="Enter student Diploma address" required>
+        </div>
+        <br>
+        <div class="col">
+            <button onclick="getvalue()" class="btn btn-success btn-lg btn-block">
+                <i class="fas fa-share-square"></i>
+                VALIDATE
+                <p id="error-config" class="error"></p>
+            </button>
+        </div>
+
+
+        <center>
+            <div id="metamask"></div>
+            <br />
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xbalance"></div><br />
+                    </td>
+                </tr>
+                <hr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xfname"></div><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xlname"></div><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xschool"></div><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xcountry"></div><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div id="xdescription"></div>
+                    </td>
+                </tr>
+            </table>
+        </center>
+
+        <br />
+
+    </div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

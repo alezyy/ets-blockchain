@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--====================================================================================================================================-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!--====================================================================================================================================-->
+<link rel="stylesheet" href="./style.css">
+<!--====================================================================================================================================-->
+<title>Credentiel Ledger Ethereum</title>
+
+</head>
+<body>
+<div align="center"><a href="http://sys869-ets-projet.ml/" target="_blank"><img src="./diploma1.png" width="555" height="285" class="img-fluid"></a>
+</div>
+
+<div class="container">
+
+	<div class="row">
+
+		<div class="col">
+			<img src="./diploma5.png" width="450" height="450" class="Avatar" >
+		</div>
+
+		<div class="col">
+
+			<br />
+			<div id="iscredential"> <h4><font color="blue">The credential exist for this student address !</font></h4> </div>
+			<br />
+			<center>
+				<div id="metamask"></div>
+				<br />
+				<table>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xbalance"></div><br />
+						</td>
+					</tr>
+					<hr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xfname"></div><br />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xlname"></div><br />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xschool"></div><br />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xcountry"></div><br />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="xdescription"></div>
+						</td>
+					</tr>
+				</table>
+			</center>
+
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+<!--====================================FOOOOOOOOTER==============================================-->
+<footer class="page-footer font-small green"><a href="/index.html" class="btn btn-info btn-sm" >Go Home</a>
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+		<a href="http://www.alezy.net/" target="_blank">Labo FRAFA | Creddential-ledger |</a><footer>Dev by: <a href="mailto:tizpeople@gmail.com">Francener</a></footer>
+	</div>
+	<!-- Fin de Copyright -->
+</footer>
+<!--==============================FINDE FOOOTER==============================================-->
+
+</body>
+<!--====================================================================================================================================-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!--====================================================================================================================================-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--====================================================================================================================================-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script>
+
+    window.onload = function () {
+    // check to see if user has metamask addon installed on his browser. check to make sure web3 is defined
+        if (typeof web3 === 'undefined') {
+            document.getElementById('metamask').innerHTML = 'You need <a href="https://metamask.io/">MetaMask</a> browser plugin to run this example'
+        }
+
+     // call the getvalue function here
+        getvalue();
+    }
+
+    //function to retrieve the last inserted value on the blockchain
+    function getvalue() {
+
+        try {
+            // contract Abi defines all the variables,constants and functions of the smart contract. replace with your own abi
+
+            var abi = [
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "_address",
+                            "type": "address"
+                        },
+                        {
+                            "name": "_sId",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "_fName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "_lName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "_schoolName",
+                            "type": "string"
+                        },
+                        {
+                            "name": "_country",
+                            "type": "string"
+                        },
+                        {
+                            "name": "_sdescription",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "setStudent",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "countStudents",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "uint256"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [
+                        {
+                            "name": "_address",
+                            "type": "address"
+                        }
+                    ],
+                    "name": "getStudent",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "",
+                            "type": "string"
+                        },
+                        {
+                            "name": "",
+                            "type": "string"
+                        },
+                        {
+                            "name": "",
+                            "type": "string"
+                        },
+                        {
+                            "name": "",
+                            "type": "string"
+                        },
+                        {
+                            "name": "",
+                            "type": "string"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "getStudent",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "address[]"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [
+                        {
+                            "name": "",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "studentAccts",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "address"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                }
+            ]
+
+            //contract address. please change the address to your own
+            //var contractaddress = '0x8ca5d830a6e99f57b45e34f4af4fc019b8b0e1fb';
+
+            let urlParams = new URLSearchParams(location.search);
+            let contractaddress = urlParams.get('contractaddr');
+
+            //instantiate and connect to contract address via Abi
+            var myAbi = web3.eth.contract(abi);
+            var myfunction = myAbi.at(contractaddress);
+            //call the get function of our SimpleStorage contract
+
+
+            let address = urlParams.get('diplomaddr');
+
+            myfunction.getStudent.call(address, (err, res) => {
+
+                if (err) {
+                    console.log(err)
+                }
+
+                if (res) {
+                    document.getElementById("xbalance").innerHTML = "The student address in the blockchain is : " + address;
+                    document.getElementById("xfname").innerHTML = "Firstname : " + res[1];
+                    document.getElementById("xlname").innerHTML = "Lastname : " + res[2];
+                    document.getElementById("xschool").innerHTML = "School : " + res[3];
+                    document.getElementById("xcountry").innerHTML = "Country : " + res[4];
+                    document.getElementById("xdescription").innerHTML = "Description : " + res[5];
+                }
+            })
+
+        } catch (err) {
+
+            document.getElementById("iscredential").innerHTML = "OUPS ! There is no Diploma Credential !!! ";
+            document.getElementById("xbalance").innerHTML = "OUPS ! There is no Diploma Credential !!! ";
+        }
+    }
+</script>
+</html>
